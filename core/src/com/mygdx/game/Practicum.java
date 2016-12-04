@@ -14,11 +14,18 @@ public class Practicum extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		setScreen(new ProgramScreen(this));
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
 	}
 
 	@Override
 	public void render () {
 		super.render();
+	}
+	
+	@Override
+	public void resize(int width, int height) {
+		
 	}
 	
 	@Override

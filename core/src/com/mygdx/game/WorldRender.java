@@ -6,19 +6,21 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class WorldRender {
 	SpriteBatch batch;
 	Texture bg,
-			button_1,
-			button_1_press;
+			menu_sound_bg;
+	Button button_1;
 	
 	public WorldRender() {
 		batch = new SpriteBatch();
 		bg = new Texture("bg.png");
-		button_1 = new Texture("button_1.png");
-		button_1_press = new Texture("button_1_press.png");
+		button_1 = new Button();
+		button_1.iniButton("button_1","button_1_press",1);
+		menu_sound_bg = new Texture("menu_sound_bg.png");
 	}
 	
 	public void render() {
 		renderBG();
-		renderButton_1();
+		button_1.renderButton();
+		renderMenuSound();
 	}
 	
 	private void renderBG() {
@@ -27,15 +29,9 @@ public class WorldRender {
 		batch.end();
 	}
 	
-	private void renderButton_1() {
-		if(!World.isClick()) {
-			batch.begin();
-			batch.draw(button_1, 50, 600 - 100);
-			batch.end();
-		} else {
-			batch.begin();
-			batch.draw(button_1_press, 50, 600 - 100);
-			batch.end();
-			}		
+	private void renderMenuSound() {
+		batch.begin();
+		batch.draw(menu_sound_bg, 800 - 361, 0);
+		batch.end();
 	}
 }

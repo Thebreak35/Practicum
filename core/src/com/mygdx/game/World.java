@@ -3,39 +3,49 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-
 public class World {
 	static Vector2 vector;
-	static Rectangle button_1;
-	static boolean isButton_1_click = false;
-	
-	static SoundFx sound_1;
+	static Rectangle 	button_1,
+						menuSound;
+	static Button_1 button_logic_1;
 	
 	public World() {
 		vector = new Vector2();
-		button_1 = new Rectangle(50, 100 - 50, 50, 50);
-		sound_1 = new SoundFx();
+		button_1 = new Rectangle(0, 0, 50, 50);
+		button_1.setPosition(50, 50);
+		menuSound = new Rectangle(0, 0, 361, 600);
+		menuSound.setPosition(800 - 361, 0);
+		button_logic_1 = new Button_1();
+		button_logic_1.setSound(1);
 	}
 	
 	public void update() {
 		vector.x = Gdx.input.getX();
 		vector.y = Gdx.input.getY();
-		
-		System.out.println(isButton_1_click);
+		isClickMenu();
 	}
 	
-	public static boolean isClick() {
+	public static boolean isClick_1() {
 		if(Gdx.input.justTouched()) {
 			if(button_1.contains(vector)) {
-				isButton_1_click = !isButton_1_click;
-				if(isButton_1_click == true) {
-					sound_1.playSound_1();
+				button_logic_1.changeState();
+				if(button_logic_1.isClick == true) {
+					button_logic_1.play();
 				} else {
-					sound_1.stopSound_1();
+					button_logic_1.stop();
 				}
-				return isButton_1_click;
+				return button_logic_1.isClick;
 			}
 		}
-		return isButton_1_click;
+		return button_logic_1.isClick;
+	}
+	
+	public void isClickMenu() {
+		if(Gdx.input.justTouched()) {
+			if(menuSound.contains(vector)) {
+				button_logic_1.stop();
+				button_logic_1.setSound(2);
+			}
+		}
 	}
 }

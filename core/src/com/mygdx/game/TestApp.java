@@ -1,10 +1,10 @@
-package practicum;
+package com.mygdx.game;
 
 import org.usb4java.Device;
 
 public class TestApp {
     static McuBoard board;
-
+    public static int switchOutput;
     public static void main(String[] args) {
         McuBoard.initUsb();
         
@@ -31,6 +31,7 @@ public class TestApp {
 //  GET SWITCH
             		byte[] sw1 = board.read((byte)1, (short)0, (short)0);
             		int sw = (sw1[0] & 0xFF);
+            		switchOutput = sw;
             		System.out.format("Switch state : %s\n",sw);
 // SET FUNCTION
             		board.write((byte)2, (short) 0, (short) sw);

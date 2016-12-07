@@ -12,7 +12,18 @@ public class SoundFx {
 		sound_1 = Gdx.audio.newSound(Gdx.files.internal("sound_1.mp3"));
 		sound_2 = Gdx.audio.newSound(Gdx.files.internal("cat.mp3"));
 	}
-	
+
+	public void playWithSwitch() {
+		if (TestApp.switchOutput == 1) {
+			stopSound_2();
+			playSound_1();
+		} else if (TestApp.switchOutput == 2) {
+			stopSound_1();
+			playSound_2();
+		} else {
+			
+		}
+	}
 	public void playSound_1() {
 		sound_1.play();
 		sound_1.loop();

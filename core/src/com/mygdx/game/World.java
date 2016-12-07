@@ -3,6 +3,9 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.game.TestApp;
+import com.mygdx.game.McuBoard;
+
 public class World {
 	static Vector2 vector;
 	static Rectangle 	button_1,
@@ -23,6 +26,7 @@ public class World {
 		vector.x = Gdx.input.getX();
 		vector.y = Gdx.input.getY();
 		isClickMenu();
+		button_logic_1.soundfx.playWithSwitch();
 	}
 	
 	public static boolean isClick_1() {

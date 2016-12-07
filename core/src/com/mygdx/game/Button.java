@@ -8,6 +8,7 @@ public class Button {
 			buttonSkin_press;
 	SpriteBatch batch;
 	public int buttonNumber;
+	private int x,y;
 	public Button() {
 		batch = new SpriteBatch();
 	}
@@ -16,16 +17,28 @@ public class Button {
 		buttonSkin = new Texture(buttonName+".png");
 		buttonSkin_press = new Texture(pressName+".png");
 		buttonNumber = number;
+		x = 50*((buttonNumber-1)%4);
+		if (buttonNumber <=4) {
+			y = 500;
+		} else if (buttonNumber > 4 && buttonNumber < 9) {
+			y = 400;
+		} else if (buttonNumber >= 9 && buttonNumber < 13) {
+			y = 300;
+		} else {
+			y = 200;
+		}
 	}
 	
 	public void renderButton() {
-		if(!World.isClick_1()) {
+//		if (!World.isClick_1(buttonNumber)) {
+		World.isClick_1(buttonNumber);
+		if (!World.returnBooleanButton_1Class(buttonNumber)) {
 			batch.begin();
-			batch.draw(buttonSkin, 50, 600 - 100);
+			batch.draw(buttonSkin, x, y);
 			batch.end();
 		} else {
 			batch.begin();
-			batch.draw(buttonSkin_press, 50, 600 - 100);
+			batch.draw(buttonSkin_press, x, y);
 			batch.end();
 			}		
 	}

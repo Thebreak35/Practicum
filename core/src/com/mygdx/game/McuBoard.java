@@ -1,4 +1,4 @@
-package practicum;
+package com.mygdx.game;
 
 import java.nio.*;
 import java.util.*;

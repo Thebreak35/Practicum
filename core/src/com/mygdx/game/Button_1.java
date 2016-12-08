@@ -21,6 +21,7 @@ public class Button_1 extends Button{
 	}
 	
 	public void play() {
+		System.out.println(soundNumber);
 		if (soundNumber == 1) {
 			soundfx.playSound_1();
 		} else if (soundNumber == 2) {

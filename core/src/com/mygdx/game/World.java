@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import java.util.concurrent.TimeUnit;
+
 import org.usb4java.Device;
 
 import com.badlogic.gdx.Gdx;
@@ -8,8 +10,9 @@ import com.badlogic.gdx.math.Vector2;
 
 public class World {
 	static McuBoard board;
-	public static int switchOutput;
+	public static int switchOutput = 30;
     public static int sw;
+//    SoundFx soundfx;
 	static Vector2 vector;
 	static Rectangle 	button_1,
 						button_2,
@@ -68,6 +71,8 @@ public class World {
             System.out.println(e);
         }
 		vector = new Vector2();
+		
+//		soundfx = new SoundFx();
 		
 		button_1 = new Rectangle(0, 0, 50, 50);
 		button_1.setPosition(100, 50);
@@ -188,35 +193,45 @@ public class World {
 	public void update() {
 		vector.x = Gdx.input.getX();
 		vector.y = Gdx.input.getY();
-		isClickMenu();
-		button_logic_1.soundfx.playWithSwitch();         	
+		isClickMenu(); 
+//		soundfx.playWithSwitch();
         	try {
 //GET SWITCH
         		byte[] sw1 = board.read((byte)1, (short)0, (short)0);
         		sw = (sw1[0] & 0xFF);
-        		switchOutput = sw;
-        		System.out.format("Switch state : %s\n",sw);
+        		if(sw != switchOutput) {
+        			button_logic_1.soundfx.playWithSwitch();  
+        			System.out.println(switchOutput);
+            		switchOutput = sw;
+        		}
+//        		switchOutput = sw;
+//        		System.out.format("Switch state : %s\n",sw);
 //SET FUNCTION
         		board.write((byte)2, (short) 0, (short) sw);
     		} catch (Exception e) {
     			e.printStackTrace();
     		}
+        	
+//        	button_logic_1.soundfx.playWithSwitch();        	
 	}
 	
 	public static boolean isClick_1(int inp) {
-		if (Gdx.input.justTouched()) {
-			if (button_1.contains(vector)) {
-				if (inp == 1) {
+//		System.out.println(inp);
+		if (inp == 1) {
+			if (Gdx.input.justTouched()) {
+				if (button_1.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
 						button_logic_1.play();
 					} else {
 						button_logic_1.stop();
-					}
+					}	
 					return button_logic_1.isClick[inp];
 				}
-			} else if (button_2.contains(vector)) {
-				if (inp == 2) {
+			}
+		} if (inp == 2) {
+			if (Gdx.input.justTouched()) {
+				if (button_2.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_2.isClick[inp]) {
 						button_logic_2.play();
@@ -225,8 +240,10 @@ public class World {
 					}
 					return button_logic_2.isClick[inp];
 				}
-			} else if (button_3.contains(vector)) {
-				if (inp == 3) {
+			}
+		} if (inp == 3) {
+			if (Gdx.input.justTouched()) {
+				if (button_3.contains(vector)) {
 					button_logic_3.changeState(inp);
 					if(button_logic_3.isClick[inp]) {
 						button_logic_3.play();
@@ -235,8 +252,10 @@ public class World {
 					}
 					return button_logic_3.isClick[inp];
 				}
-			} else if (button_4.contains(vector)) {
-				if (inp == 4) {
+			}
+		} if (inp == 4) {
+			if (Gdx.input.justTouched()) {
+				if (button_4.contains(vector)) {
 					button_logic_4.changeState(inp);
 					if(button_logic_4.isClick[inp]) {
 						button_logic_4.play();
@@ -245,118 +264,10 @@ public class World {
 					}
 					return button_logic_4.isClick[inp];
 				}
-			} else if (button_5.contains(vector)) {
-				if (inp == 5) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_6.contains(vector)) {
-				if (inp == 6) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_7.contains(vector)) {
-				if (inp == 7) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_8.contains(vector)) {
-				if (inp == 8) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_9.contains(vector)) {
-				if (inp == 9) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_10.contains(vector)) {
-				if (inp == 10) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_11.contains(vector)) {
-				if (inp == 11) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_12.contains(vector)) {
-				if (inp == 12) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_13.contains(vector)) {
-				if (inp == 13) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_14.contains(vector)) {
-				if (inp == 14) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_15.contains(vector)) {
-				if (inp == 15) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}
-			} else if (button_16.contains(vector)) {
-				if (inp == 16) {
+			}
+		} if (inp == 5) {
+			if (Gdx.input.justTouched()) {
+				if (button_5.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
 						button_logic_1.play();
@@ -366,15 +277,149 @@ public class World {
 					return button_logic_1.isClick[inp];
 				}
 			}
+		} if (inp == 6) {
+			if (Gdx.input.justTouched()) {
+				if (button_6.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}
+			}
+		} if (inp == 7) {
+			if (Gdx.input.justTouched()) {
+				if (button_7.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 8) {
+			if (Gdx.input.justTouched()) {
+				if (button_8.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}
+			}
+		} if (inp == 9) {
+			if (Gdx.input.justTouched()) {
+				if (button_9.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 10) {
+			if (Gdx.input.justTouched()) {
+				if (button_10.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 11) {
+			if (Gdx.input.justTouched()) {
+				if (button_11.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 12) {
+			if (Gdx.input.justTouched()) {
+				if (button_12.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 13) {
+			if (Gdx.input.justTouched()) {
+				if (button_13.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 14) {
+			if (Gdx.input.justTouched()) {
+				if (button_14.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 15) {
+			if (Gdx.input.justTouched()) {
+				if (button_15.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
+		} if (inp == 16) {
+			if (Gdx.input.justTouched()) {
+				if (button_16.contains(vector)) {
+					button_logic_1.changeState(inp);
+					if(button_logic_1.isClick[inp]) {
+						button_logic_1.play();
+					} else {
+						button_logic_1.stop();
+					}
+					return button_logic_1.isClick[inp];
+				}		
+			}
 		}
+				
 		return false;
 	}
 	
 	public void isClickMenu() {
 		if(Gdx.input.justTouched()) {
 			if(menuSound.contains(vector)) {
-				button_logic_1.stop();
-				button_logic_1.setSound(2);
+//				button_logic_1.stop();
+//				button_logic_1.setSound(2);
+				button_logic_1.soundfx.muteAll();
 			}
 		}
 	}

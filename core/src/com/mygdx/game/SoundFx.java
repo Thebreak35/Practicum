@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import java.util.concurrent.TimeUnit;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 
@@ -28,76 +30,87 @@ public class SoundFx {
 		sound_3 = Gdx.audio.newSound(Gdx.files.internal("sound_3.mp3"));
 		sound_4 = Gdx.audio.newSound(Gdx.files.internal("sound_4.mp3"));
 	}
-
-	public void playWithSwitch() {
-		if (TestApp.switchOutput == 1) {
-			muteAll();
-			playSound_1();
-		} else if (TestApp.switchOutput == 2) {
-			muteAll();
-			playSound_2();
-		} else if (TestApp.switchOutput == 3) {
-			muteAll();
-			playSound_3();
-		} else if (TestApp.switchOutput == 4) {
-			muteAll();
-			playSound_4();
-		} else if (TestApp.switchOutput == 5) {
-			muteAll();
-			playSound_5();
-		} else if (TestApp.switchOutput == 6) {
-			muteAll();
-			playSound_6();
-		} else if (TestApp.switchOutput == 7) {
-			muteAll();
-			playSound_7();
-		} else if (TestApp.switchOutput == 8) {
-			muteAll();
-			playSound_8();
-		} else if (TestApp.switchOutput == 9) {
-			muteAll();
-			playSound_9();
-		} else if (TestApp.switchOutput == 10) {
-			muteAll();
-			playSound_10();
-		} else if (TestApp.switchOutput == 11) {
-			muteAll();
-			playSound_11();
-		} else if (TestApp.switchOutput == 12) {
-			muteAll();
-			playSound_12();
-		} else if (TestApp.switchOutput == 13) {
-			muteAll();
-			playSound_13();
-		} else if (TestApp.switchOutput == 14) {
-			muteAll();
-			playSound_14();
-		} else if (TestApp.switchOutput == 15) {
-			muteAll();
-			playSound_15();
-		} else if (TestApp.switchOutput == 16) {
-			muteAll();
-			playSound_16();
+	
+	public void justWait() {
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
+
+	public void playWithSwitch() {
+//		justWait();
+		if (World.sw == 1) {
+//			muteAll();
+			playSound_1();
+		} else if (World.sw == 2) {
+//			muteAll();
+			playSound_2();
+		} else if (World.sw == 3) {
+//			muteAll();
+			playSound_3();
+		} else if (World.sw == 4) {
+//			muteAll();
+			playSound_4();
+		}
+//		} else if (World.sw== 5) {
+//			muteAll();
+//			playSound_5();
+//		} else if (World.sw == 6) {
+//			muteAll();
+//			playSound_6();
+//		} else if (World.sw == 7) {
+//			muteAll();
+//			playSound_7();
+//		} else if (World.sw == 8) {
+//			muteAll();
+//			playSound_8();
+//		} else if (World.sw == 9) {
+//			muteAll();
+//			playSound_9();
+//		} else if (World.sw == 10) {
+//			muteAll();
+//			playSound_10();
+//		} else if (World.sw == 11) {
+//			muteAll();
+//			playSound_11();
+//		} else if (World.sw == 12) {
+//			muteAll();
+//			playSound_12();
+//		} else if (World.sw == 13) {
+//			muteAll();
+//			playSound_13();
+//		} else if (World.sw == 14) {
+//			muteAll();
+//			playSound_14();
+//		} else if (World.sw == 15) {
+//			muteAll();
+//			playSound_15();
+//		} else if (World.sw == 16) {
+//			muteAll();
+//			playSound_16();
+//		}
+	}
 	
-	private void muteAll() {
+	public void muteAll() {
 		sound_1.stop();
 		sound_2.stop();
 		sound_3.stop();
 		sound_4.stop();
-		sound_5.stop();
-		sound_6.stop();
-		sound_7.stop();
-		sound_8.stop();
-		sound_9.stop();
-		sound_10.stop();
-		sound_11.stop();
-		sound_12.stop();
-		sound_13.stop();
-		sound_14.stop();
-		sound_15.stop();
-		sound_16.stop();
+//		sound_5.stop();
+//		sound_6.stop();
+//		sound_7.stop();
+//		sound_8.stop();
+//		sound_9.stop();
+//		sound_10.stop();
+//		sound_11.stop();
+//		sound_12.stop();
+//		sound_13.stop();
+//		sound_14.stop();
+//		sound_15.stop();
+//		sound_16.stop();
 	}
 	
 	public void playSound_1() {

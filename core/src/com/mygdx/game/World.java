@@ -98,50 +98,65 @@ public class World {
 		button_logic_1.setSound(1);
 		button_logic_1.resetButton_1();
 		
-//		button_logic_2 = new Button_1();
-//		button_logic_2.setSound(1);
-//		
-//		button_logic_3 = new Button_1();
-//		button_logic_3.setSound(1);
-//		
-//		button_logic_4 = new Button_1();
-//		button_logic_4.setSound(1);
-//		
-//		button_logic_5 = new Button_1();
-//		button_logic_5.setSound(1);
-//		
-//		button_logic_6 = new Button_1();
-//		button_logic_6.setSound(1);
-//		
-//		button_logic_7 = new Button_1();
-//		button_logic_7.setSound(1);
-//		
-//		button_logic_8 = new Button_1();
-//		button_logic_8.setSound(1);
-//		
-//		button_logic_9 = new Button_1();
-//		button_logic_9.setSound(1);
-//		
-//		button_logic_10 = new Button_1();
-//		button_logic_10.setSound(1);
-//		
-//		button_logic_11 = new Button_1();
-//		button_logic_11.setSound(1);
-//		
-//		button_logic_12 = new Button_1();
-//		button_logic_12.setSound(1);
-//		
-//		button_logic_13 = new Button_1();
-//		button_logic_13.setSound(1);
-//		
-//		button_logic_14 = new Button_1();
-//		button_logic_14.setSound(1);
-//		
-//		button_logic_15 = new Button_1();
-//		button_logic_15.setSound(1);
-//		
-//		button_logic_16 = new Button_1();
-//		button_logic_16.setSound(1);
+		button_logic_2 = new Button_1();
+		button_logic_2.setSound(2);
+		button_logic_2.resetButton_1();
+		
+		button_logic_3 = new Button_1();
+		button_logic_3.setSound(3);
+		button_logic_3.resetButton_1();
+		
+		button_logic_4 = new Button_1();
+		button_logic_4.setSound(4);
+		button_logic_4.resetButton_1();
+		
+		button_logic_5 = new Button_1();
+		button_logic_5.setSound(1);
+		button_logic_5.resetButton_1();
+		
+		button_logic_6 = new Button_1();
+		button_logic_6.setSound(1);
+		button_logic_6.resetButton_1();
+		
+		button_logic_7 = new Button_1();
+		button_logic_7.setSound(1);
+		button_logic_7.resetButton_1();
+		
+		button_logic_8 = new Button_1();
+		button_logic_8.setSound(1);
+		button_logic_8.resetButton_1();
+		
+		button_logic_9 = new Button_1();
+		button_logic_9.setSound(1);
+		button_logic_9.resetButton_1();
+		
+		button_logic_10 = new Button_1();
+		button_logic_10.setSound(1);
+		button_logic_10.resetButton_1();
+		
+		button_logic_11 = new Button_1();
+		button_logic_11.setSound(1);
+		button_logic_11.resetButton_1();
+		
+		button_logic_12 = new Button_1();
+		button_logic_12.setSound(1);
+		button_logic_12.resetButton_1();
+		
+		button_logic_13 = new Button_1();
+		button_logic_13.setSound(1);
+		button_logic_13.resetButton_1();
+		
+		button_logic_14 = new Button_1();
+		button_logic_14.setSound(1);
+		button_logic_14.resetButton_1();
+		
+		button_logic_15 = new Button_1();
+		button_logic_15.setSound(1);
+		button_logic_15.resetButton_1();
+		
+		button_logic_16 = new Button_1();
+		button_logic_16.setSound(1);
+		button_logic_16.resetButton_1();
 	}
 	
 	public void update() {
@@ -149,14 +164,13 @@ public class World {
 		vector.y = Gdx.input.getY();
 		isClickMenu();
 		button_logic_1.soundfx.playWithSwitch();
-//		System.out.println(returnBooleanButton_1Class(1));
+		System.out.println(TestApp.sw);
 	}
 	
 	public static boolean isClick_1(int inp) {
 		if (Gdx.input.justTouched()) {
 			if (button_1.contains(vector)) {
 				if (inp == 1) {
-					System.out.println("Here");
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
 						button_logic_1.play();
@@ -168,32 +182,32 @@ public class World {
 			} else if (button_2.contains(vector)) {
 				if (inp == 2) {
 					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+					if(button_logic_2.isClick[inp]) {
+						button_logic_2.play();
 					} else {
-						button_logic_1.stop();
+						button_logic_2.stop();
 					}
-					return button_logic_1.isClick[inp];
+					return button_logic_2.isClick[inp];
 				}
 			} else if (button_3.contains(vector)) {
 				if (inp == 3) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+					button_logic_3.changeState(inp);
+					if(button_logic_3.isClick[inp]) {
+						button_logic_3.play();
 					} else {
-						button_logic_1.stop();
+						button_logic_3.stop();
 					}
-					return button_logic_1.isClick[inp];
+					return button_logic_3.isClick[inp];
 				}
 			} else if (button_4.contains(vector)) {
 				if (inp == 4) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+					button_logic_4.changeState(inp);
+					if(button_logic_4.isClick[inp]) {
+						button_logic_4.play();
 					} else {
-						button_logic_1.stop();
+						button_logic_4.stop();
 					}
-					return button_logic_1.isClick[inp];
+					return button_logic_4.isClick[inp];
 				}
 			} else if (button_5.contains(vector)) {
 				if (inp == 5) {

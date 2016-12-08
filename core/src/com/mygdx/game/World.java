@@ -1,10 +1,15 @@
 package com.mygdx.game;
 
+import org.usb4java.Device;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class World {
+	static McuBoard board;
+	public static int switchOutput;
+    public static int sw;
 	static Vector2 vector;
 	static Rectangle 	button_1,
 						button_2,
@@ -41,6 +46,27 @@ public class World {
 					button_logic_16;
 	
 	public World() {
+		McuBoard.initUsb();
+		try
+        {
+        	Device[] devices = McuBoard.findBoards();
+        	
+        	if (devices.length == 0) {
+                System.out.format("** Practicum board not found **\n");
+                return;
+        	}
+        	else {
+                System.out.format("** Found %d practicum board(s) **\n", devices.length);
+        	}
+        	board = new McuBoard(devices[0]);
+            System.out.format("** Practicum board found **\n");
+            System.out.format("** Manufacturer: %s\n", board.getManufacturer());
+            System.out.format("** Product: %s\n", board.getProduct());    
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
 		vector = new Vector2();
 		
 		button_1 = new Rectangle(0, 0, 50, 50);
@@ -163,8 +189,18 @@ public class World {
 		vector.x = Gdx.input.getX();
 		vector.y = Gdx.input.getY();
 		isClickMenu();
-		button_logic_1.soundfx.playWithSwitch();
-		System.out.println(TestApp.sw);
+		button_logic_1.soundfx.playWithSwitch();         	
+        	try {
+//GET SWITCH
+        		byte[] sw1 = board.read((byte)1, (short)0, (short)0);
+        		sw = (sw1[0] & 0xFF);
+        		switchOutput = sw;
+        		System.out.format("Switch state : %s\n",sw);
+//SET FUNCTION
+        		board.write((byte)2, (short) 0, (short) sw);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
 	}
 	
 	public static boolean isClick_1(int inp) {

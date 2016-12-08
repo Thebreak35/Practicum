@@ -17,7 +17,7 @@ public class Button {
 		buttonSkin = new Texture(buttonName+".png");
 		buttonSkin_press = new Texture(pressName+".png");
 		buttonNumber = number;
-		x = 50*((buttonNumber-1)%4);
+		x = 50*((buttonNumber-1)%4) + 100;
 		if (buttonNumber <=4) {
 			y = 500;
 		} else if (buttonNumber > 4 && buttonNumber < 9) {

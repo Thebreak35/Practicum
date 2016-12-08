@@ -24,11 +24,17 @@ public class SoundFx {
 			sound_15,
 			sound_16;
 	
+	public static boolean[] isSwitchPress = new boolean[17];
+	
 	public SoundFx() {
 		sound_1 = Gdx.audio.newSound(Gdx.files.internal("sound_1.mp3"));
 		sound_2 = Gdx.audio.newSound(Gdx.files.internal("cat.mp3"));
 		sound_3 = Gdx.audio.newSound(Gdx.files.internal("sound_3.mp3"));
 		sound_4 = Gdx.audio.newSound(Gdx.files.internal("sound_4.mp3"));
+		
+		for (int i = 0 ; i < 17 ; i ++) {
+			isSwitchPress[i] = false;
+		}
 	}
 	
 	public void justWait() {
@@ -40,20 +46,119 @@ public class SoundFx {
 		}
 	}
 
+	private void checkSwitchIsPress(int inp) {
+		System.out.println(isSwitchPress[inp]);
+		if (!isSwitchPress[inp]) {
+			if (inp == 1) {
+//				playSound_1();
+				Button_1.play();
+			} else if (inp == 2) {
+//				playSound_2();
+				Button_1.play();
+			} else if (inp == 3) {
+//				playSound_3();
+				Button_1.play();
+			} else if (inp == 4) {
+//				playSound_4();
+				Button_1.play();
+			}
+//			} else if (inp == 5) {
+//				muteAll();
+//				playSound_5();
+//			} else if (inp == 6) {
+//				muteAll();
+//				playSound_6();
+//			} else if (inp == 7) {
+//				muteAll();
+//				playSound_7();
+//			} else if (inp == 8) {
+//				muteAll();
+//				playSound_8();
+//			} else if (inp == 9) {
+//				muteAll();
+//				playSound_9();
+//			} else if (inp == 10) {
+//				muteAll();
+//				playSound_10();
+//			} else if (inp == 11) {
+//				muteAll();
+//				playSound_11();
+//			} else if (inp == 12) {
+//				muteAll();
+//				playSound_12();
+//			} else if (inp == 13) {
+//				muteAll();
+//				playSound_13();
+//			} else if (inp == 14) {
+//				muteAll();
+//				playSound_14();
+//			} else if (inp == 15) {
+//				muteAll();
+//				playSound_15();
+//			} else if (inp == 16) {
+//				muteAll();
+//				playSound_16();
+//			}
+		} else {
+			if (inp == 1) {
+				stopSound_1();
+			} else if (inp == 2) {
+				stopSound_2();
+			} else if (inp == 3) {
+				stopSound_3();
+			} else if (inp == 4) {
+				stopSound_4();
+			}
+//			} else if (inp == 5) {
+//				muteAll();
+//				stopSound_5();
+//			} else if (inp == 6) {
+//				muteAll();
+//				stopSound_6();
+//			} else if (inp == 7) {
+//				muteAll();
+//				stopSound_7();
+//			} else if (inp == 8) {
+//				muteAll();
+//				stopSound_8();
+//			} else if (inp == 9) {
+//				muteAll();
+//				stopSound_9();
+//			} else if (inp == 10) {
+//				muteAll();
+//				stopSound_10();
+//			} else if (inp == 11) {
+//				muteAll();
+//				stopSound_11();
+//			} else if (inp == 12) {
+//				muteAll();
+//				stopSound_12();
+//			} else if (inp == 13) {
+//				muteAll();
+//				stopSound_13();
+//			} else if (inp == 14) {
+//				muteAll();
+//				stopSound_14();
+//			} else if (inp == 15) {
+//				muteAll();
+//				stopSound_15();
+//			} else if (inp == 16) {
+//				muteAll();
+//				stopSound_16();
+//			}
+		}
+		isSwitchPress[World.sw] = !isSwitchPress[World.sw];
+	}
+	
 	public void playWithSwitch() {
-//		justWait();
 		if (World.sw == 1) {
-//			muteAll();
-			playSound_1();
+			checkSwitchIsPress(World.sw);
 		} else if (World.sw == 2) {
-//			muteAll();
-			playSound_2();
+			checkSwitchIsPress(World.sw);
 		} else if (World.sw == 3) {
-//			muteAll();
-			playSound_3();
+			checkSwitchIsPress(World.sw);
 		} else if (World.sw == 4) {
-//			muteAll();
-			playSound_4();
+			checkSwitchIsPress(World.sw);
 		}
 //		} else if (World.sw== 5) {
 //			muteAll();

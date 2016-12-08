@@ -3,7 +3,7 @@ package com.mygdx.game;
 public class Button_1 extends Button{
 	public static boolean[] isClick = new boolean[17];
 	public static SoundFx soundfx = new SoundFx();
-	private int soundNumber;
+	private static int soundNumber = 0;
 	
 	public void resetButton_1() {
 		for(int i = 0 ; i < 17 ; i++) {
@@ -12,7 +12,6 @@ public class Button_1 extends Button{
 	}
 	
 	public void changeState(int inp) {
-//		System.out.println(isClick[inp]);
 		isClick[inp] = !isClick[inp];
 	}
 	
@@ -20,7 +19,7 @@ public class Button_1 extends Button{
 		soundNumber = inp;
 	}
 	
-	public void play() {
+	public static void play() {
 		System.out.println(soundNumber);
 		if (soundNumber == 1) {
 			soundfx.playSound_1();

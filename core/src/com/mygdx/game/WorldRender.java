@@ -6,7 +6,24 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class WorldRender {
 	SpriteBatch batch;
 	Texture bg,
-			menu_sound_bg;
+			menu_sound_bg,
+			menu_sound_1,
+			menu_sound_2,
+			menu_sound_3,
+			menu_sound_4,
+			menu_sound_5,
+			menu_sound_6,
+			menu_sound_7,
+			menu_sound_8,
+			menu_sound_9,
+			menu_sound_10,
+			menu_sound_11,
+			menu_sound_12,
+			menu_sound_13,
+			menu_sound_14,
+			menu_sound_15,
+			menu_sound_16,
+			menu_sound_reset;
 	Button 	button_1,
 			button_2,
 			button_3,
@@ -60,6 +77,24 @@ public class WorldRender {
 		button_15.iniButton("button_15","button_15_press",15);
 		button_16.iniButton("button_16","button_16_press",16);
 		menu_sound_bg = new Texture("menu_sound_bg.png");
+		menu_sound_1 = new Texture("menu_sound_1.png");
+		menu_sound_2 = new Texture("menu_sound_2.png");
+		menu_sound_3 = new Texture("menu_sound_3.png");
+		menu_sound_4 = new Texture("menu_sound_4.png");
+		menu_sound_5 = new Texture("menu_sound_5.png");
+		menu_sound_6 = new Texture("menu_sound_6.png");
+		menu_sound_7 = new Texture("menu_sound_7.png");
+		menu_sound_8 = new Texture("menu_sound_8.png");
+		menu_sound_9 = new Texture("menu_sound_9.png");
+		menu_sound_10 = new Texture("menu_sound_10.png");
+		menu_sound_11 = new Texture("menu_sound_11.png");
+		menu_sound_12 = new Texture("menu_sound_12.png");
+		menu_sound_13 = new Texture("menu_sound_13.png");
+		menu_sound_14 = new Texture("menu_sound_14.png");
+		menu_sound_15 = new Texture("menu_sound_15.png");
+		menu_sound_16 = new Texture("menu_sound_16.png");
+		menu_sound_reset = new Texture("menu_sound_reset.png");
+		
 	}
 	
 	public void render() {
@@ -92,6 +127,23 @@ public class WorldRender {
 	private void renderMenuSound() {
 		batch.begin();
 		batch.draw(menu_sound_bg, 800 - 361, 0);
+		batch.draw(menu_sound_1, 800 - 361 + 25, 600 - 50);
+		batch.draw(menu_sound_2, 800 - 361 + 200 , 600 - 50);
+		batch.draw(menu_sound_3, 800 - 361 + 25, 600 - 50*2);
+		batch.draw(menu_sound_4, 800 - 361 + 200 , 600 - 50*2);
+		batch.draw(menu_sound_5, 800 - 361 + 25, 600 - 50*3);
+		batch.draw(menu_sound_6, 800 - 361 + 200 , 600 - 50*3);
+		batch.draw(menu_sound_7, 800 - 361 + 25, 600 - 50*4);
+		batch.draw(menu_sound_8, 800 - 361 + 200 , 600 - 50*4);
+		batch.draw(menu_sound_9, 800 - 361 + 25, 600 - 50*5);
+		batch.draw(menu_sound_10, 800 - 361 + 200 , 600 - 50*5);
+		batch.draw(menu_sound_11, 800 - 361 + 25, 600 - 50*6);
+		batch.draw(menu_sound_12, 800 - 361 + 200 , 600 - 50*6);
+		batch.draw(menu_sound_13, 800 - 361 + 25, 600 - 50*7);
+		batch.draw(menu_sound_14, 800 - 361 + 200 , 600 - 50*7);
+		batch.draw(menu_sound_15, 800 - 361 + 25, 600 - 50*8);
+		batch.draw(menu_sound_16, 800 - 361 + 200 , 600 - 50*8);
+		batch.draw(menu_sound_reset, 800 - 361 + 110, 0);
 		batch.end();
 	}
 }

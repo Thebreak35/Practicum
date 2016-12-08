@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.usb4java.Device;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -30,7 +31,24 @@ public class World {
 						button_14,
 						button_15,
 						button_16,
-						menuSound;
+						menuSound,
+						menu1,
+						menu2,
+						menu3,
+						menu4,
+						menu5,
+						menu6,
+						menu7,
+						menu8,
+						menu9,
+						menu10,
+						menu11,
+						menu12,
+						menu13,
+						menu14,
+						menu15,
+						menu16,
+						menuReset;
 	static Button_1 button_logic_1,
 					button_logic_2,
 					button_logic_3,
@@ -70,6 +88,7 @@ public class World {
         {
             System.out.println(e);
         }
+		
 		vector = new Vector2();
 		
 //		soundfx = new SoundFx();
@@ -121,6 +140,57 @@ public class World {
 		
 		button_16 = new Rectangle(0, 0, 50, 50);
 		button_16.setPosition(250, 350);
+		
+		menu1 = new Rectangle(0, 0, 150, 50);
+		menu1.setPosition(800 - 361 + 25, 50*1 - 50);
+		
+		menu2 = new Rectangle(0, 0, 150, 50);
+		menu2.setPosition(800 - 361 + 200 , 50*1 - 50);
+		
+		menu3 = new Rectangle(0, 0, 150, 50);
+		menu3.setPosition(800 - 361 + 25, 50*2 - 50);
+		
+		menu4 = new Rectangle(0, 0, 150, 50);
+		menu4.setPosition(800 - 361 + 200 , 50*2 - 50);
+		
+		menu5 = new Rectangle(0, 0, 150, 50);
+		menu5.setPosition(800 - 361 + 25, 50*3 - 50);
+		
+		menu6 = new Rectangle(0, 0, 150, 50);
+		menu6.setPosition(800 - 361 + 200 , 50*3 - 50);
+		
+		menu7 = new Rectangle(0, 0, 150, 50);
+		menu7.setPosition(800 - 361 + 25, 50*4 - 50);
+		
+		menu8 = new Rectangle(0, 0, 150, 50);
+		menu8.setPosition(800 - 361 + 200 , 50*4 - 50);
+		
+		menu9 = new Rectangle(0, 0, 150, 50);
+		menu9.setPosition(800 - 361 + 25, 50*5 - 50);
+		
+		menu10 = new Rectangle(0, 0, 150, 50);
+		menu10.setPosition(800 - 361 + 200 , 50*5 - 50);
+		
+		menu11 = new Rectangle(0, 0, 150, 50);
+		menu11.setPosition(800 - 361 + 25, 50*6 - 50);
+		
+		menu12 = new Rectangle(0, 0, 150, 50);
+		menu12.setPosition(800 - 361 + 200 , 50*6 - 50);
+		
+		menu13 = new Rectangle(0, 0, 150, 50);
+		menu13.setPosition(800 - 361 + 25, 50*7 - 50);
+		
+		menu14 = new Rectangle(0, 0, 150, 50);
+		menu14.setPosition(800 - 361 + 200 , 50*7 - 50);
+		
+		menu15 = new Rectangle(0, 0, 150, 50);
+		menu15.setPosition(800 - 361 + 25, 50*8 - 50);
+		
+		menu16 = new Rectangle(0, 0, 150, 50);
+		menu16.setPosition(800 - 361 + 200 , 50*8 - 50);
+		
+		menuReset = new Rectangle(0, 0, 150, 50);
+		menuReset.setPosition(800 - 361 + 110, 600 - 50);
 		
 		menuSound = new Rectangle(0, 0, 361, 600);
 		menuSound.setPosition(800 - 361, 0);
@@ -193,7 +263,7 @@ public class World {
 	public void update() {
 		vector.x = Gdx.input.getX();
 		vector.y = Gdx.input.getY();
-		isClickMenu(); 
+		isClickMenu();
 //		soundfx.playWithSwitch();
         	try {
 //GET SWITCH
@@ -201,7 +271,7 @@ public class World {
         		sw = (sw1[0] & 0xFF);
         		if(sw != switchOutput) {
         			button_logic_1.soundfx.playWithSwitch();  
-        			System.out.println(switchOutput);
+//        			System.out.println(switchOutput);
             		switchOutput = sw;
         		}
 //        		switchOutput = sw;
@@ -222,7 +292,8 @@ public class World {
 				if (button_1.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}	
@@ -234,7 +305,8 @@ public class World {
 				if (button_2.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_2.isClick[inp]) {
-						button_logic_2.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_2.stop();
 					}
@@ -246,7 +318,8 @@ public class World {
 				if (button_3.contains(vector)) {
 					button_logic_3.changeState(inp);
 					if(button_logic_3.isClick[inp]) {
-						button_logic_3.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_3.stop();
 					}
@@ -258,7 +331,8 @@ public class World {
 				if (button_4.contains(vector)) {
 					button_logic_4.changeState(inp);
 					if(button_logic_4.isClick[inp]) {
-						button_logic_4.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_4.stop();
 					}
@@ -270,7 +344,8 @@ public class World {
 				if (button_5.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -282,7 +357,8 @@ public class World {
 				if (button_6.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -294,7 +370,8 @@ public class World {
 				if (button_7.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -306,7 +383,8 @@ public class World {
 				if (button_8.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -318,7 +396,8 @@ public class World {
 				if (button_9.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -330,7 +409,8 @@ public class World {
 				if (button_10.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -342,7 +422,8 @@ public class World {
 				if (button_11.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -354,7 +435,8 @@ public class World {
 				if (button_12.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -366,7 +448,8 @@ public class World {
 				if (button_13.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -378,7 +461,8 @@ public class World {
 				if (button_14.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -390,7 +474,8 @@ public class World {
 				if (button_15.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -402,7 +487,8 @@ public class World {
 				if (button_16.contains(vector)) {
 					button_logic_1.changeState(inp);
 					if(button_logic_1.isClick[inp]) {
-						button_logic_1.play();
+						System.out.println("Change Complete!");
+						change();
 					} else {
 						button_logic_1.stop();
 					}
@@ -415,12 +501,64 @@ public class World {
 	}
 	
 	public void isClickMenu() {
-		if(Gdx.input.justTouched()) {
-			if(menuSound.contains(vector)) {
-//				button_logic_1.stop();
-//				button_logic_1.setSound(2);
+		if (Gdx.input.justTouched()) {
+			if (menuReset.contains(vector)) {
 				button_logic_1.soundfx.muteAll();
+				for (int i = 0 ; i < 17 ; i++) {
+					button_logic_1.soundfx.isSwitchPress[i] = false;
+				}
 			}
+		}
+	}
+	
+	private static void change() {
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_1)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_2)) {
+			button_logic_1.setSound(2);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_3)) {
+			button_logic_1.setSound(3);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_4)) {
+			button_logic_1.setSound(4);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_5)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_6)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_7)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_8)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_9)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_1) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_2) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_3) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_4) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_5) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+			button_logic_1.setSound(1);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.NUM_6) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+			button_logic_1.setSound(1);
 		}
 	}
 	

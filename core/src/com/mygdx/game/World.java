@@ -13,7 +13,8 @@ public class World {
 	static McuBoard board;
 	public static int switchOutput = 30;
     public static int sw;
-//    SoundFx soundfx;
+    boolean[] menu = new boolean[17];
+    SoundFx fx;
 	static Vector2 vector;
 	static Rectangle 	button_1,
 						button_2,
@@ -91,7 +92,7 @@ public class World {
 		
 		vector = new Vector2();
 		
-//		soundfx = new SoundFx();
+		fx = new SoundFx();
 		
 		button_1 = new Rectangle(0, 0, 50, 50);
 		button_1.setPosition(100, 50);
@@ -258,6 +259,10 @@ public class World {
 		button_logic_16 = new Button_1();
 		button_logic_16.setSound(1);
 		button_logic_16.resetButton_1();
+		
+		for (int i = 0 ; i < 17 ; i++) {
+			menu[i] = false;
+		}
 	}
 	
 	public void update() {
@@ -506,6 +511,79 @@ public class World {
 				button_logic_1.soundfx.muteAll();
 				for (int i = 0 ; i < 17 ; i++) {
 					button_logic_1.soundfx.isSwitchPress[i] = false;
+				}
+			}
+			if (menu1.contains(vector)) {
+				menu[1] = !menu[1];
+				if (menu[1]) {
+					fx.playSound_1();
+					System.out.println("HERE");
+				} else {
+					fx.stopSound_1();
+				}
+			}
+			if (menu2.contains(vector)) {
+				menu[2] = !menu[2];
+				if (menu[2]) {
+					fx.playSound_2();
+				} else {
+					fx.stopSound_2();
+				}
+			}
+			if (menu3.contains(vector)) {
+				menu[3] = !menu[3];
+				if (menu[3]) {
+					fx.playSound_3();
+				} else {
+					fx.stopSound_3();
+				}
+			}
+			if (menu4.contains(vector)) {
+				menu[4] = !menu[4];
+				if (menu[4]) {
+					fx.playSound_4();
+				} else {
+					fx.stopSound_4();
+				}
+			}
+			if (menu5.contains(vector)) {
+				menu[5] = !menu[5];
+				if (menu[5]) {
+					fx.playSound_5();
+				} else {
+					fx.stopSound_5();
+				}
+			}
+			if (menu6.contains(vector)) {
+				menu[6] = !menu[6];
+				if (menu[6]) {
+					fx.playSound_6();
+				} else {
+					fx.stopSound_6();
+				}
+			}
+			if (menu7.contains(vector)) {
+				menu[7] = !menu[7];
+				if (menu[7]) {
+					fx.playSound_7();
+				} else {
+					fx.stopSound_7();
+				}
+			}
+			if (menu8.contains(vector)) {
+				menu[8] = !menu[8];
+				if (menu[8]) {
+					fx.playSound_8();
+				} else {
+					fx.stopSound_8();
+				}
+			}
+			if (menu9.contains(vector)) {
+				menu[9] = !menu[9];
+				if (menu[9]) {
+					fx.playSound_9();
+				} else {
+					fx.stopSound_9();
 				}
 			}
 		}

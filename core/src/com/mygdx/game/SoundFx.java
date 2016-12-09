@@ -27,11 +27,15 @@ public class SoundFx {
 	public static boolean[] isSwitchPress = new boolean[17];
 	
 	public SoundFx() {
-		sound_1 = Gdx.audio.newSound(Gdx.files.internal("sound_1.mp3"));
-		sound_2 = Gdx.audio.newSound(Gdx.files.internal("cat.mp3"));
-		sound_3 = Gdx.audio.newSound(Gdx.files.internal("sound_3.mp3"));
-		sound_4 = Gdx.audio.newSound(Gdx.files.internal("sound_4.mp3"));
-		
+		sound_1 = Gdx.audio.newSound(Gdx.files.internal("sound_4.mp3"));
+		sound_2 = Gdx.audio.newSound(Gdx.files.internal("drum_1.mp3"));
+		sound_3 = Gdx.audio.newSound(Gdx.files.internal("drum_2.mp3"));
+		sound_4 = Gdx.audio.newSound(Gdx.files.internal("pack.mp3"));
+		sound_5 = Gdx.audio.newSound(Gdx.files.internal("clap.mp3"));
+		sound_6 = Gdx.audio.newSound(Gdx.files.internal("rythm.mp3"));
+		sound_7 = Gdx.audio.newSound(Gdx.files.internal("prehook.mp3"));
+		sound_8 = Gdx.audio.newSound(Gdx.files.internal("guitar.mp3"));
+		sound_9 = Gdx.audio.newSound(Gdx.files.internal("hook.mp3"));
 		for (int i = 0 ; i < 17 ; i ++) {
 			isSwitchPress[i] = false;
 		}
@@ -50,34 +54,34 @@ public class SoundFx {
 		System.out.println(isSwitchPress[inp]);
 		if (!isSwitchPress[inp]) {
 			if (inp == 1) {
-//				playSound_1();
-				Button_1.play();
+//				Button_1.play();
+				playSound_1();
 			} else if (inp == 2) {
-//				playSound_2();
-				Button_1.play();
+//				Button_1.play();
+				playSound_2();
 			} else if (inp == 3) {
-//				playSound_3();
-				Button_1.play();
+//				Button_1.play();
+				playSound_3();
 			} else if (inp == 4) {
-//				playSound_4();
-				Button_1.play();
-			}
-//			} else if (inp == 5) {
-//				muteAll();
-//				playSound_5();
-//			} else if (inp == 6) {
-//				muteAll();
-//				playSound_6();
-//			} else if (inp == 7) {
-//				muteAll();
-//				playSound_7();
-//			} else if (inp == 8) {
-//				muteAll();
-//				playSound_8();
-//			} else if (inp == 9) {
-//				muteAll();
-//				playSound_9();
-//			} else if (inp == 10) {
+//				Button_1.play();
+				playSound_4();
+			} else if (inp == 5) {
+//				Button_1.play();
+				playSound_5();
+			} else if (inp == 6) {
+//				Button_1.play();
+				playSound_6();
+			} else if (inp == 7) {
+//				Button_1.play();
+				playSound_7();
+			} else if (inp == 8) {
+//				Button_1.play();
+				playSound_8();
+			} else if (inp == 9) {
+//				Button_1.play();
+				playSound_9();
+			} 
+//			else if (inp == 10) {
 //				muteAll();
 //				playSound_10();
 //			} else if (inp == 11) {
@@ -108,23 +112,18 @@ public class SoundFx {
 				stopSound_3();
 			} else if (inp == 4) {
 				stopSound_4();
-			}
-//			} else if (inp == 5) {
-//				muteAll();
-//				stopSound_5();
-//			} else if (inp == 6) {
-//				muteAll();
-//				stopSound_6();
-//			} else if (inp == 7) {
-//				muteAll();
-//				stopSound_7();
-//			} else if (inp == 8) {
-//				muteAll();
-//				stopSound_8();
-//			} else if (inp == 9) {
-//				muteAll();
-//				stopSound_9();
-//			} else if (inp == 10) {
+			} else if (inp == 5) {
+				stopSound_5();
+			} else if (inp == 6) {
+				stopSound_6();
+			} else if (inp == 7) {
+				stopSound_7();
+			} else if (inp == 8) {
+				stopSound_8();
+			} else if (inp == 9) {
+				stopSound_9();
+			} 
+//			else if (inp == 10) {
 //				muteAll();
 //				stopSound_10();
 //			} else if (inp == 11) {
@@ -159,23 +158,18 @@ public class SoundFx {
 			checkSwitchIsPress(World.sw);
 		} else if (World.sw == 4) {
 			checkSwitchIsPress(World.sw);
-		}
-//		} else if (World.sw== 5) {
-//			muteAll();
-//			playSound_5();
-//		} else if (World.sw == 6) {
-//			muteAll();
-//			playSound_6();
-//		} else if (World.sw == 7) {
-//			muteAll();
-//			playSound_7();
-//		} else if (World.sw == 8) {
-//			muteAll();
-//			playSound_8();
-//		} else if (World.sw == 9) {
-//			muteAll();
-//			playSound_9();
-//		} else if (World.sw == 10) {
+		} else if (World.sw== 5) {
+			checkSwitchIsPress(World.sw);
+		} else if (World.sw == 6) {
+			checkSwitchIsPress(World.sw);
+		} else if (World.sw == 7) {
+			checkSwitchIsPress(World.sw);
+		} else if (World.sw == 8) {
+			checkSwitchIsPress(World.sw);
+		} else if (World.sw == 9) {
+			checkSwitchIsPress(World.sw);
+		} 
+//		else if (World.sw == 10) {
 //			muteAll();
 //			playSound_10();
 //		} else if (World.sw == 11) {
@@ -204,11 +198,11 @@ public class SoundFx {
 		sound_2.stop();
 		sound_3.stop();
 		sound_4.stop();
-//		sound_5.stop();
-//		sound_6.stop();
-//		sound_7.stop();
-//		sound_8.stop();
-//		sound_9.stop();
+		sound_5.stop();
+		sound_6.stop();
+		sound_7.stop();
+		sound_8.stop();
+		sound_9.stop();
 //		sound_10.stop();
 //		sound_11.stop();
 //		sound_12.stop();

@@ -31,7 +31,7 @@ public class Button {
 	
 	public void renderButton() {
 //		if (!World.isClick_1(buttonNumber)) {
-		World.isClick_1(buttonNumber);
+		World.isClickClick(buttonNumber);
 		if (!World.returnBooleanButton_1Class(buttonNumber)) {
 			batch.begin();
 			batch.draw(buttonSkin, x, y);

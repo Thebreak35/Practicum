@@ -269,7 +269,6 @@ public class World {
 		vector.x = Gdx.input.getX();
 		vector.y = Gdx.input.getY();
 		isClickMenu();
-//		soundfx.playWithSwitch();
         	try {
 //GET SWITCH
         		byte[] sw1 = board.read((byte)1, (short)0, (short)0);
@@ -282,233 +281,253 @@ public class World {
 //        		switchOutput = sw;
 //        		System.out.format("Switch state : %s\n",sw);
 //SET FUNCTION
-        		board.write((byte)2, (short) 0, (short) sw);
+        		
     		} catch (Exception e) {
     			e.printStackTrace();
-    		}
-        	
-//        	button_logic_1.soundfx.playWithSwitch();        	
+    		}    
 	}
 	
-	public static boolean isClick_1(int inp) {
-//		System.out.println(inp);
+	
+	public static boolean isClickClick(int inp) {
 		if (inp == 1) {
 			if (Gdx.input.justTouched()) {
+				checkAndChange(inp,button_logic_1);
 				if (button_1.contains(vector)) {
 					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}	
 					return button_logic_1.isClick[inp];
 				}
-			}
-		} if (inp == 2) {
-			if (Gdx.input.justTouched()) {
-				if (button_2.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_2.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_2.stop();
-					}
-					return button_logic_2.isClick[inp];
-				}
-			}
-		} if (inp == 3) {
-			if (Gdx.input.justTouched()) {
-				if (button_3.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_3.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_3.stop();
-					}
-					return button_logic_3.isClick[inp];
-				}
-			}
-		} if (inp == 4) {
-			if (Gdx.input.justTouched()) {
-				if (button_4.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_4.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_4.stop();
-					}
-					return button_logic_4.isClick[inp];
-				}
-			}
-		} if (inp == 5) {
-			if (Gdx.input.justTouched()) {
-				if (button_5.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_5.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_5.stop();
-					}
-					return button_logic_5.isClick[inp];
-				}
-			}
-		} if (inp == 6) {
-			if (Gdx.input.justTouched()) {
-				if (button_6.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_6.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_6.stop();
-					}
-					return button_logic_6.isClick[inp];
-				}
-			}
-		} if (inp == 7) {
-			if (Gdx.input.justTouched()) {
-				if (button_7.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_7.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_7.stop();
-					}
-					return button_logic_7.isClick[inp];
-				}		
-			}
-		} if (inp == 8) {
-			if (Gdx.input.justTouched()) {
-				if (button_8.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_8.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_8.stop();
-					}
-					return button_logic_8.isClick[inp];
-				}
-			}
-		} if (inp == 9) {
-			if (Gdx.input.justTouched()) {
-				if (button_9.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_9.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_9.stop();
-					}
-					return button_logic_9.isClick[inp];
-				}		
-			}
-		} if (inp == 10) {
-			if (Gdx.input.justTouched()) {
-				if (button_10.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}		
-			}
-		} if (inp == 11) {
-			if (Gdx.input.justTouched()) {
-				if (button_11.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}		
-			}
-		} if (inp == 12) {
-			if (Gdx.input.justTouched()) {
-				if (button_12.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}		
-			}
-		} if (inp == 13) {
-			if (Gdx.input.justTouched()) {
-				if (button_13.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}		
-			}
-		} if (inp == 14) {
-			if (Gdx.input.justTouched()) {
-				if (button_14.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}		
-			}
-		} if (inp == 15) {
-			if (Gdx.input.justTouched()) {
-				if (button_15.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}		
-			}
-		} if (inp == 16) {
-			if (Gdx.input.justTouched()) {
-				if (button_16.contains(vector)) {
-					button_logic_1.changeState(inp);
-					if(button_logic_1.isClick[inp]) {
-						change();
-						System.out.println("Change Complete!");
-					} else {
-						button_logic_1.stop();
-					}
-					return button_logic_1.isClick[inp];
-				}		
 			}
 		}
-				
+		
 		return false;
 	}
+	public static void checkAndChange(int inp, Button_1 logic) {
+		if (button_logic_1.isClick[inp] == true) {
+			System.out.println("in methode " + inp);
+			change(logic);
+			SoundFx.alwaysCheckSound(inp);
+		}
+	}
+//	public static boolean isClick_1(int inp) {
+//		System.out.println(inp);
+//		if (inp == 1) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_1.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_1.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_1.stop();
+//					}	
+//					return button_logic_1.isClick[inp];
+//				}
+//			}
+//		} if (inp == 2) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_2.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_2.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_2.stop();
+//					}
+//					return button_logic_2.isClick[inp];
+//				}
+//			}
+//		} if (inp == 3) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_3.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_3.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_3.stop();
+//					}
+//					return button_logic_3.isClick[inp];
+//				}
+//			}
+//		} if (inp == 4) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_4.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_4.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_4.stop();
+//					}
+//					return button_logic_4.isClick[inp];
+//				}
+//			}
+//		} if (inp == 5) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_5.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_5.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_5.stop();
+//					}
+//					return button_logic_5.isClick[inp];
+//				}
+//			}
+//		} if (inp == 6) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_6.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_6.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_6.stop();
+//					}
+//					return button_logic_6.isClick[inp];
+//				}
+//			}
+//		} if (inp == 7) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_7.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_7.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_7.stop();
+//					}
+//					return button_logic_7.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 8) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_8.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_8.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_8.stop();
+//					}
+//					return button_logic_8.isClick[inp];
+//				}
+//			}
+//		} if (inp == 9) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_9.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_9.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_9.stop();
+//					}
+//					return button_logic_9.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 10) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_10.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_10.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_10.stop();
+//					}
+//					return button_logic_10.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 11) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_11.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_11.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_11.stop();
+//					}
+//					return button_logic_11.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 12) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_12.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_12.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_12.stop();
+//					}
+//					return button_logic_12.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 13) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_13.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_13.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_13.stop();
+//					}
+//					return button_logic_13.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 14) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_14.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_14.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_14.stop();
+//					}
+//					return button_logic_14.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 15) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_15.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_15.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_15.stop();
+//					}
+//					return button_logic_15.isClick[inp];
+//				}		
+//			}
+//		} if (inp == 16) {
+//			if (Gdx.input.justTouched()) {
+//				if (button_16.contains(vector)) {
+//					button_logic_1.changeState(inp);
+//					if(button_logic_16.isClick[inp]) {
+//						change();
+//						System.out.println("Change Complete!");
+//					} else {
+//						button_logic_16.stop();
+//					}
+//					return button_logic_16.isClick[inp];
+//				}		
+//			}
+//		}
+//				
+//		return false;
+//	}
 	
 	public void isClickMenu() {
 		if (Gdx.input.justTouched()) {
 			if (menuReset.contains(vector)) {
 				button_logic_1.soundfx.muteAll();
+				board.write((byte)2, (short) 0, (short) 25);
 				for (int i = 0 ; i < 17 ; i++) {
 					button_logic_1.soundfx.isSwitchPress[i] = false;
 				}
@@ -517,7 +536,6 @@ public class World {
 				menu[1] = !menu[1];
 				if (menu[1]) {
 					fx.playSound_1();
-					System.out.println("HERE");
 				} else {
 					fx.stopSound_1();
 				}
@@ -586,57 +604,113 @@ public class World {
 					fx.stopSound_9();
 				}
 			}
+			if (menu10.contains(vector)) {
+				menu[10] = !menu[10];
+				if (menu[10]) {
+					fx.playSound_10();
+				} else {
+					fx.stopSound_10();
+				}
+			}
+			if (menu11.contains(vector)) {
+				menu[11] = !menu[11];
+				if (menu[11]) {
+					fx.playSound_11();
+				} else {
+					fx.stopSound_11();
+				}
+			}
+			if (menu12.contains(vector)) {
+				menu[12] = !menu[12];
+				if (menu[12]) {
+					fx.playSound_12();
+				} else {
+					fx.stopSound_12();
+				}
+			}
+			if (menu13.contains(vector)) {
+				menu[13] = !menu[13];
+				if (menu[13]) {
+					fx.playSound_13();
+				} else {
+					fx.stopSound_13();
+				}
+			}
+			if (menu14.contains(vector)) {
+				menu[14] = !menu[14];
+				if (menu[14]) {
+					fx.playSound_14();
+				} else {
+					fx.stopSound_14();
+				}
+			}
+			if (menu15.contains(vector)) {
+				menu[15] = !menu[15];
+				if (menu[15]) {
+					fx.playSound_15();
+				} else {
+					fx.stopSound_15();
+				}
+			}
+			if (menu16.contains(vector)) {
+				menu[16] = !menu[16];
+				if (menu[9]) {
+					fx.playSound_16();
+				} else {
+					fx.stopSound_16();
+				}
+			}
 		}
 	}
 	
-	private static void change() {
+	private static void change(Button_1 button_logic) {
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_1)) {
-			button_logic_1.setSound(1);
+			button_logic.setSound(1);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_2)) {
-			button_logic_1.setSound(2);
+			button_logic.setSound(2);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_3)) {
-			button_logic_1.setSound(3);
+			button_logic.setSound(3);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_4)) {
-			button_logic_1.setSound(4);
+			button_logic.setSound(4);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_5)) {
-			button_logic_1.setSound(5);
+			button_logic.setSound(5);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_6)) {
-			button_logic_1.setSound(6);
+			button_logic.setSound(6);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_7)) {
-			button_logic_1.setSound(7);
+			button_logic.setSound(7);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_8)) {
-			button_logic_1.setSound(8);
+			button_logic.setSound(8);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_9)) {
-			button_logic_1.setSound(9);
+			button_logic.setSound(9);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-			button_logic_1.setSound(1);
+			button_logic.setSound(10);
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.NUM_1) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-			button_logic_1.setSound(1);
+		if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
+			button_logic.setSound(11);
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.NUM_2) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-			button_logic_1.setSound(1);
+		if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+			button_logic.setSound(12);
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.NUM_3) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-			button_logic_1.setSound(1);
+		if (Gdx.input.isKeyPressed(Input.Keys.E)) {
+			button_logic.setSound(13);
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.NUM_4) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-			button_logic_1.setSound(1);
+		if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+			button_logic.setSound(14);
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.NUM_5) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-			button_logic_1.setSound(1);
+		if (Gdx.input.isKeyPressed(Input.Keys.T)) {
+			button_logic.setSound(15);
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.NUM_6) && Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-			button_logic_1.setSound(1);
+		if (Gdx.input.isKeyPressed(Input.Keys.Y)) {
+			button_logic.setSound(16);
 		}
 	}
 	
